@@ -1,0 +1,11 @@
+name    'puppet-mcomaster'
+version '0.1.0'
+source 'http://github.com/lmello/puppet-mcomaster'
+author 'lmello'
+license 'Apache License, Version 2.0'
+summary 'This module install and configure mcomaster'
+description 'This module install and configure mcomaster'
+project_page 'http://github.com/lmello/puppet-mcomaster'
+
+dependency 'puppetlabs/mcollective', '1.1.6'
+dependency 'thomasvandoren/redis',  '0.10.0'
