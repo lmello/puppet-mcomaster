@@ -22,8 +22,7 @@ class mcomaster::source($source_repo='https://github.com/ajf8/mcomaster',
     group       => $system_group,
     refreshonly => true,
     require     => [User[$system_user], Group[$system_group], 
-                    Class[mcomaster::ruby193, Vcsrepo[$source_path]
-                   ]
+                    Class[mcomaster::ruby193], Vcsrepo[$source_path]]
   }
   exec { 'compile_assets_mcomaster':
     command     => '/usr/bin/scl enable ruby193 "./bin/rake assets:precompile"',
@@ -33,7 +32,7 @@ class mcomaster::source($source_repo='https://github.com/ajf8/mcomaster',
     group       => $system_group,
     refreshonly => true,
     require     => [User[$system_user], Group[$system_group], 
-                    Class[mcomaster::ruby193, Vcsrepo[$source_path],
+                    Class[mcomaster::ruby193], Vcsrepo[$source_path],
                     Exec['bundle_install_mcomaster']
                    ]
   }

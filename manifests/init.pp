@@ -109,7 +109,7 @@ class mcomaster ($redis_host='127.0.0.1',
   $mcomaster_db_name=mcomaster,
   $manage_system_user_and_group=true,
   $manage_repo=true,
-  $yum_reponame='mcomaster'
+  $yum_reponame='mcomaster',
   $system_user='mcomaster',
   $system_group='mcomaster',
   $package_version='latest',
@@ -151,7 +151,6 @@ class mcomaster ($redis_host='127.0.0.1',
                      source_repo    => $source_repo,
                      source_path    => $mcomaster_path
                    } 
-                   }   
                    $require_install_method = Class['mcomaster::source']
                  }
      'vagrant':  { class {'mcomaster::vagrant': 
