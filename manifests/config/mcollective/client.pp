@@ -1,7 +1,7 @@
 class mcomaster::config::mcollective::client ($redis_host = localhost, $redis_port = 6379) {
   include mcomaster::config::mcollective::redis_gem
   file { '/usr/libexec/mcollective/mcollective/discovery/redisdiscovery.rb':
-    source  => 'puppet:///modules/mcomaster/redisdiscovery.rb',
+    source  => 'puppet:///modules/mcomaster/discovery/redisdiscovery.rb',
     owner   => 'root',
     group   => 'root',
     mode    => '0644',
@@ -9,7 +9,7 @@ class mcomaster::config::mcollective::client ($redis_host = localhost, $redis_po
   } 
 
   file { '/usr/libexec/mcollective/mcollective/discovery/redisdiscovery.ddl':
-    source => 'puppet:///modules/mcomaster/redisdiscovery.ddl',
+    source => 'puppet:///modules/mcomaster/discovery/redisdiscovery.ddl',
     owner  => 'root',
     group  => 'root',
     mode   => '0644',

@@ -1,14 +1,14 @@
 class mcomaster::config::mcollective::server($redis_port = 6379, $redis_host = 'localhost') {  
   include mcomaster::config::mcollective::redis_gem
   file { '/usr/libexec/mcollective/mcollective/registration/meta.rb':
-    source => 'puppet:///modules/mcomaster/meta.rb',
+    source => 'puppet:///modules/mcomaster/registration/meta.rb',
     owner  => 'root',
     group  => 'root',
     mode   => '0644',
     require => Package['mcollective'],
   } 
   file { '/usr/libexec/mcollective/mcollective/agent/registration.rb':
-    source => 'puppet:///modules/mcomaster/registration.rb',
+    source => 'puppet:///modules/mcomaster/agent/registration.rb',
     owner  => 'root',
     group  => 'root',
     mode   => '0644',

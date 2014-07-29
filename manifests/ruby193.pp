@@ -1,4 +1,9 @@
-class mcomaster::ruby193($create_yumrepo=true, $ruby_basename='ruby193') {
+class mcomaster::ruby193 {
+  if $caller_module_name != $module_name {
+    fail("Use of private class ${name} by ${caller_module_name}")
+  }
+  $manage_repo=$mcomaster::manage_repo
+  $ruby_basename=$mcomaster::ruby_package_basename
   if $create_yumrepo {
     yumrepo { 'ruby_scl':
       descr    => 'Ruby SCL',
@@ -7,7 +12,7 @@ class mcomaster::ruby193($create_yumrepo=true, $ruby_basename='ruby193') {
       gpgcheck => 0,
     }
   }
-  $ruby_packages = ["$ruby_basename-runtime", 
+  $ruby_packages = ["$ruby_basename-runtime",
     "$ruby_basename-rubygem-io-console",
     "$ruby_basename-rubygem-rdoc",
     "$ruby_basename-rubygem-diff-lcs",
@@ -22,7 +27,7 @@ class mcomaster::ruby193($create_yumrepo=true, $ruby_basename='ruby193') {
     "$ruby_basename-ruby-irb",
     "$ruby_basename-rubygem-net-http-persistent",
     "$ruby_basename-rubygem-bundler"]
-  package {$ruby_packages: 
+  package {$ruby_packages:
     ensure => latest
   }
 }
