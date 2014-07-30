@@ -4,6 +4,7 @@ puppet-mcomaster
 Puppet module for mcomaster. 
 
 This module install and configure mcomaster. 
+DOES NOT WORK YET.
 
 ## Usage 
 
